@@ -15,7 +15,7 @@ jobs:
           WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
           WPE_ENV: rutgers
           # Deploy Options
-          SRC_PATH: "/"
-          REMOTE_PATH: "/"
+          SRC_PATH: "rutgers"
+          REMOTE_PATH: "rutgers"
           PHP_LINT: TRUE
           CACHE_CLEAR: TRUE
