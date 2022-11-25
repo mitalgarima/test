@@ -1,0 +1,5 @@
+node_modules
+__files/
+*.zip
+test.html
+package-lock.json

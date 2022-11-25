@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- Lighgallery for video/images popup -->
+		<link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.min.css" />
+
+		<title>Rutgers Home page</title>
+	</head>
+	
+<body class="bg-rutgers-light-grey">
+
+<div id="gallery-videos-demo">
+    <!-- YouTube Video --->
+    <a
+        data-lg-size="1280-720"
+        data-src="https://www.youtube.com/watch?v=dOKQeqGNJwY?mute=0"
+        data-poster="https://img.youtube.com/vi/egyIeygdS_E/maxresdefault.jpg"
+        data-sub-html="<h4>Visual Soundscapes - Mountains | Planet Earth II | BBC America</h4><p>On the heels of Planet Earth II's record-breaking Emmy nominations, BBC America presents stunning visual soundscapes from the series' amazing habitats.</p>"
+    >
+        <img
+            width="300"
+            height="100"
+            class="img-responsive"
+            src="https://img.youtube.com/vi/egyIeygdS_E/maxresdefault.jpg"
+        />
+    </a>
+
+    
+</div>
+		<script src="lightgallery.min.js"></script>
+				<script src="plugins/lg-autoplay.min.js"></script>
+				<script src="plugins/lg-video.min.js"></script>
+				
+				<script type="text/javascript">
+				lightGallery(document.getElementById('gallery-videos-demo'), {
+    plugins: [lgVideo],
+});
+
+				</script>
+</body>
+</html>

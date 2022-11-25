@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--default-bottom-spacing: 30px;
+	--default-section-spacing: 60px;
+}
+
+/* Custom Fonts Added */
+
+@font-face {
+	font-family: "Souce Sans Pro Regular";
+	src: url("./fonts/SourceSansPro-Regular.otf");
+}
+@font-face {
+	font-family: "Souce Sans Pro Bold";
+	src: url("./fonts/SourceSansPro-Bold.otf");
+}
+@font-face {
+	font-family: "Souce Sans Pro SemiBold";
+	src: url("./fonts/SourceSansPro-Semibold.otf");
+}
+
+/* Base Layer Overrides */
+
+@layer base {
+	body {
+		@apply text-xl;
+	}
+
+	.ta-std-spacing {
+		margin-bottom: var(--default-bottom-spacing);
+	}
+	.ta-section-wrapper {
+		margin-bottom: var(--default-section-spacing);
+	}
+
+	h1 {
+		font-family: "Souce Sans Pro Bold";
+		color: theme("colors.white");
+	}
+	h2 {
+		font-family: "Souce Sans Pro Bold";
+		color: theme("colors.rutgers-red");
+		@apply text-4xl;
+	}
+	h3 {
+		@apply font-bold;
+	}
+	@media screen and (max-width: theme(screens.lg)) {
+		body {
+			@apply text-lg;
+		}
+		h2 {
+			@apply text-xl;
+		}
+	}
+}
+
+/* Common spacing classes */
+
+.ta-container {
+	@apply mx-auto px-8 justify-between md:px-10;
+}
+.ta-container-full {
+	@apply w-full max-w-none px-0;
+}
+
+.ta-bulleted-list {
+	@apply ml-14;
+}
+
+.ta-bulleted-list li {
+	display: flex;
+}
+
+.ta-bulleted-list li:before {
+	content: url("../images/right-caret.svg");
+	margin-right: 10px;
+}
+
+/* Other custom classes */
+/* for tags & categories, and quick links */
+.ta-tags {
+	@apply text-white text-xs bg-rutgers-red rounded-full font-bold p-1 px-3 sm:text-sm sm:px-4;
+}
+
+.ta-quick-links-desktop .ta-tags a:hover {
+	@apply border-b-2  border-rutgers-red leading-3;
+}
+
+.post-listing-widget .ta-post-title {
+	@apply text-base font-bold;
+}
+
+.post-listing-widget .ta-author {
+	@apply text-base font-bold;
+}
+
+.post-listing-widget .ta-post-date {
+	@apply text-sm;
+}
+
+ul.ta-category-listing {
+	margin-bottom: 0;
+}
+
+@media screen and (min-width: 976px) {
+	.ta-tags {
+		@apply text-base text-rutgers-red bg-transparent font-bold p-1 px-4;
+	}
+	.ta-category-listing .ta-tags {
+		@apply bg-rutgers-red  text-white text-xs;
+	}
+}
+
+.dropdown-menu {
+	@apply bg-white p-3 space-y-1 z-50;
+}
+
+.dropdown-menu li {
+	@apply p-3 py-1 text-sm;
+}
+.dropdown-menu li:hover {
+	@apply bg-rutgers-light-grey rounded-md;
+}
+
+/* Hamburger Menu */
+.hamburger {
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	transition: all 0.25s;
+	position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+	position: absolute;
+	width: 24px;
+	height: 2px;
+	top: 0;
+	left: 0;
+	transform: rotate(0);
+	transition: all 0.5s;
+	@apply bg-rutgers-red;
+}
+
+.hamburger-middle {
+	transform: translateY(7px);
+}
+
+.hamburger-bottom {
+	transform: translateY(14px);
+}
+
+.open {
+	transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+	transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+	display: none;
+}
+
+.open .hamburger-bottom {
+	transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+.dropdown:hover > a {
+	@apply text-rutgers-red;
+}
+
+/* Carousel common */
+
+.swiper-pagination-bullet-active {
+	@apply bg-rutgers-red;
+}
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+	bottom: auto;
+}
+
+/* Carousel Styling */
+
+.sfas-carousel .swiper-slide h4 {
+	@apply text-rutgers-red text-xl leading-6 mb-3;
+	font-family: "Souce Sans Pro Bold";
+}
+
+.sfas-carousel .swiper-slide p {
+	@apply text-smmd leading-6;
+}
+
+.sfas-carousel .swiper-wrapper {
+	align-items: start;
+}
+
+.sfas-carousel .swiper {
+	width: 100%;
+	overflow: visible;
+}
+
+.sfas-carousel .swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: start;
+	margin: 0px;
+	background: white;
+	transition: all 0.3s ease;
+	opacity: 0.5;
+}
+.sfas-carousel .swiper-slide.swiper-slide-active {
+	background: linear-gradient(45deg, #f69259, #f16975);
+	transform: scale(1.2);
+	z-index: 2;
+	opacity: 1;
+}
+
+.sfas-carousel .swiper-slide.swiper-slide-active p {
+	@apply text-smmd;
+}
+
+.sfas-carousel .swiper-button-prev,
+.sfas-carousel .swiper-button-next {
+	@apply text-white bg-rutgers-red rounded-full w-10 h-10;
+}
+.sfas-carousel .swiper-button-next:after,
+.sfas-carousel .swiper-button-prev:after {
+	@apply text-white text-sm font-bold;
+}
+.sfas-carousel .swiper-button-next {
+	right: 28%;
+}
+.sfas-carousel .swiper-button-prev {
+	left: 28%;
+}
+
+@media screen and (max-width: theme(screens.lg)) {
+	.sfas-carousel .swiper-button-next {
+		right: 15%;
+	}
+	.sfas-carousel .swiper-button-prev {
+		left: 15%;
+	}
+	.sfas-carousel .swiper-slide {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: theme(screens.md)) {
+	.sfas-carousel .swiper-button-next {
+		right: 0;
+	}
+	.sfas-carousel .swiper-button-prev {
+		left: 0;
+	}
+}
+
+/* ARROWS */
+.sfas-carousel .swiper-button-prev,
+.sfas-carousel .swiper-button-next {
+	color: #f69259;
+}
+
+/* Testimonial Swiper Styling */
+
+.ta-testimonials-wrapper .swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.mySwiper,
+.sfas-carousel,
+.ta-testimonials-swiper {
+	width: 100%;
+}
+.sfas-carousel,
+.ta-testimonials-swiper {
+	padding-bottom: 50px;
+}
+
+.ta-testimonials-wrapper .ta-swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.ta-testimonials-wrapper .ta-swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Sidebar Widgets */
+
+.ta-sidebar-widget {
+	@apply p-10 bg-white rounded-lg;
+}
+
+/* Search */
+
+/* Utilities layer overrides */
+
+/* Custom Classes/Styling */
