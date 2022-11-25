@@ -13,7 +13,7 @@ jobs:
         with:
           # Deploy vars
           WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
-          WPE_ENV: rutgers
+          WPE_ENV: rutgers1
           # Deploy Options
 
           REMOTE_PATH: "rutgers"
